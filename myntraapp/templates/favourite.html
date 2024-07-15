@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyntraMuse | Your Favourites</title>
+    <link rel="icon" href="{% static 'images/Group 16.png' %}" type="image/icon type">
+    <link rel="stylesheet" href="{% static 'favourite.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><img src="{% static 'images/Group 16.png' %}" alt="Logo"></div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'trending' %}">Trending</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for products...">
+                <button id="search-button"><img src="{% static 'images/search.png' %}" alt="Search"></button>
+            </div>
+            <div class="nav-icons">
+                <a href="{% url 'favourite' %}" id="favourites-icon"><img src="{% static 'images/heart.png' %}" alt="Favourite"></a>
+                <a href="{% url 'moodboard' %}"><img src="{% static 'images/moodboard.png' %}" alt="Moodboard"></a>
+                <a href="#"><img src="{% static 'images/Group 12.png' %}" alt="Group 12" style="width: 35px; height: 20px;"></a>
+                <a href="#"><img src="{% static 'images/shopping-bag.png' %}" alt="Shopping Bag" style="width: 40px; height: 30px;"></a>
+                <a href="#"><img src="{% static 'images/profile.png' %}" alt="Profile" style="width: 40px; height: 32px;"></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="favourites-section">
+            <h1>Your Favourites</h1>
+            <div class="favourites-grid" id="favourites-grid">
+                <!-- Favourites will be dynamically added here -->
+            </div>
+        </section>
+        <div class="back">
+            <button>
+                <a href="{% url 'trending' %}">Go Back ></a>
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="online">
+            <h4>ONLINE SHOPPING</h4>
+            <ul>
+                <li><a href="https://www.myntra.com/shop/men">Men</a></li>
+                <li><a href="https://www.myntra.com/shop/women">Women</a></li>
+                <li><a href="https://www.myntra.com/shop/kids">Kids</a></li>
+                <li><a href="https://www.myntra.com/shop/home-living">Home & Living</a></li>
+                <li><a href="https://www.myntra.com/personal-care">Beauty</a></li>
+            </ul>
+        </div>
+        <div class="useful-links">
+            <h4>USEFUL LINKS</h4>   
+            <ul>
+                <li><a href="https://blog.myntra.com/">Blogs</a></li>
+                <li><a href="https://careers.myntra.com/">Careers</a></li>
+            </ul>
+        </div>
+        <div class="customer">
+            <h4>Customer Care</h4>
+            <ul>
+                <li><a>Contact us</a></li>
+                <li><a>Track Orders</a></li>
+                <li><a>Shipping</a></li>
+            </ul>
+        </div>
+        <div class="muse">
+            <h4>MyntraMuse</h4>
+            <ul>
+                <li><a>About MyntraMuse</a></li>
+                <li><a href="{% url 'home' %}">Home page</a></li>
+                <li><a href="{% url 'trending' %}">Trending page</a></li>
+                <li><a>Create Mood Boards</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="{% static 'favourite.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyntraMuse | Trending Today</title>
+    <link rel="icon" href="{% static 'images/Group 16.png' %}" type="image/icon type">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'trending.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><img src="{% static 'images/Group 16.png' %}" alt="Logo"></div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'trending' %}" target="_blank">Trending</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for products...">
+                <button id="search-button"><img src="{% static 'images/search.png' %}" alt="Search"></button>
+            </div>
+            <div class="nav-icons">
+                <a href="{% url 'favourite' %}" id="favourites-icon"><img src="{% static 'images/heart.png' %}" alt="Favourite"></a>
+                <a href="{% url 'moodboard' %}"><img src="{% static 'images/moodboard.png' %}" alt="Moodboard"></a>
+                <a href="#"><img src="{% static 'images/Group 12.png' %}" alt="Group 12" style="width: 35px; height: 20px;"></a>
+                <a href="#"><img src="{% static 'images/shopping-bag.png' %}" alt="Shopping Bag" style="width: 40px; height: 30px;"></a>
+                <a href="#"><img src="{% static 'images/profile.png' %}" alt="Profile" style="width: 40px; height: 32px;"></a>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero-section">
+        <div class="hero-content">
+            <img src="{% static 'images/Group 18.png' %}" alt="Hero Image">
+            <button class="explore-now"><a href="./trending.html#filters">Explore Now ></a></button>
+        </div>
+    </section>
+
+    <main>
+        <section class="filters" id="filters">
+            <div class="filter-group">
+                <h3>Gender</h3>
+                <select id="gender-filter" onchange="filterItems()">
+                    <option value="all">All</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <h3>Aesthetics</h3>
+                <select id="aesthetics-filter" onchange="filterItems()">
+                    <option value="all">All</option>
+                    <option value="aesthetic1">Aesthetic 1</option>
+                    <option value="aesthetic2">Aesthetic 2</option>
+                </select>
+            </div>
+        </section>
+    
+        <section class="pinterest-layout">
+            <div class="grid">
+                <div class="grid-item" data-gender="female" data-id="1">
+                    <img src="{% static 'images/indian.jpg' %}" alt="Image 1">
+                    <div class="overlay overlay1">Add to Favourites</div>
+                </div>
+                <div class="grid-item" data-gender="female" data-id="2">
+                    <img src="{% static 'images/y2k.jpg' %}" alt="Image 2">
+                    <div class="overlay overlay2">Add to Favourites</div>
+                </div>
+                <div class="grid-item" data-gender="female" data-id="3">
+                    <img src="{% static 'images/download (8).jpg' %}" alt="Image 3">
+                    <div class="overlay overlay3">Add to Favourites</div>
+                </div>
+                <div class="grid-item" data-gender="female" data-id="4">
+                    <img src="{% static 'images/shirt.jpg' %}" alt="Image 4">
+                    <div class="overlay4 overlay">Add to Favourites</div>
+                </div>
+                <div class="grid-item" data-gender="female" data-id="5">
+                    <img src="{% static 'images/skirt.jpg' %}" alt="Image 5">
+                    <div class="overlay1 overlay">Add to Favourites</div>
+                </div>
+                <div class="grid-item" data-gender="female" data-id="6">
+                    <img src="{% static 'images/party-wear.jpg' %}" alt="Image 6">
+                    <div class="overlay2 overlay">Add to Favourites</div>
+                </div>
+                <div class="grid-item" data-gender="female" data-id="7">
+                    <img src="{% static 'images/satin-dress.jpg' %}" alt="Image 7">
+                    <div class="overlay3 overlay">Add to Favourites</div>
+                </div>
+                <div class="grid-item" data-gender="female" data-id="8">
+                    <img src="{% static 'images/top.jpg' %}" alt="Image 8">
+                    <div class="overlay4 overlay">Add to Favourites</div>
+                </div>
+                <div class="grid-item" data-gender="male" data-id="9">
+                    <img src="{% static 'images/shirt-men.jpg' %}" alt="Image 9">
+                    <div class="overlay1 overlay">Add to Favourites</div>
+                </div>
+                <div class="grid-item" data-gender="male" data-id="10">
+                    <img src="{% static 'images/jeans-men.jpg' %}" alt="Image 10">
+                    <div class="overlay2 overlay">Add to Favourites</div>
+                </div>
+                <div class="grid-item" data-gender="male" data-id="11">
+                    <img src="{% static 'images/tshirt-men.jpg' %}" alt="Image 11">
+                    <div class="overlay3 overlay">Add to Favourites</div>
+                </div>
+                <div class="grid-item" data-gender="male" data-id="12">
+                    <img src="{% static 'images/cargoes-men.jpg' %}" alt="Image 12">
+                    <div class="overlay4 overlay">Add to Favourites</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="online">
+            <h4>ONLINE SHOPPING</h4>
+            <ul>
+                <li><a href="https://www.myntra.com/shop/men">Men</a></li>
+                <li><a href="https://www.myntra.com/shop/women">Women</a></li>
+                <li><a href="https://www.myntra.com/shop/kids">Kids</a></li>
+                <li><a href="https://www.myntra.com/shop/home-living">Home & Living</a></li>
+                <li><a href="https://www.myntra.com/personal-care">Beauty</a></li>
+            </ul>
+        </div>
+        <div class="useful-links">
+            <h4>USEFUL LINKS</h4>   
+            <ul>
+                <li><a href="https://blog.myntra.com/">Blogs</a></li>
+                <li><a href="https://careers.myntra.com/">Careers</a></li>
+            </ul>
+        </div>
+        <div class="customer">
+            <h4>Customer Care</h4>
+            <ul>
+                <li><a>Contact us</a></li>
+                <li><a>Track Orders</a></li>
+                <li><a>Shipping</a></li>
+            </ul>
+        </div>
+        <div class="muse">
+            <h4>MyntraMuse</h4>
+            <ul>
+                <li><a>About MyntraMuse</a></li>
+                <li><a href="{% url 'home' %}">Home page</a></li>
+                <li><a href="{% url 'trending' %}">Trending page</a></li>
+                <li><a>Create Mood Boards</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="{% static 'trending.js' %}"></script>
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>
